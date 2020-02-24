@@ -1,5 +1,5 @@
-/* Example code to create an alarm system with HC-SR501 PIR motion sensor,
-buzzer and Arduino. More info: www.makerguides.com */
+
+
 #include <Stepper.h> 
 // Define connection pins:
 #define buzzerPin 5
@@ -38,7 +38,7 @@ void loop() {
       Serial.println("clockwise"); // print text on serial monitor
       motor.step(stepsPerRevolution/4); // rotate motor in clockwise direction for one revolution
       delay(500);
-       for(int x=0; x<100;x++){
+       for(int x=0; x<10;x++){
           check();
        }
   }
@@ -46,7 +46,7 @@ void loop() {
       Serial.println("clockwise"); // print text on serial monitor
       motor.step(-stepsPerRevolution/4); // rotate motor in clockwise direction for one revolution
       delay(500);
-       for(int x=0; x<100;x++){
+       for(int x=0; x<10;x++){
           check();
        }
   }

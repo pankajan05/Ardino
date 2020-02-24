@@ -1,5 +1,3 @@
-
-// this constant won't change:
 const int  buttonPin = 2;    // the pin that the pushbutton is attached to
 const int ledPin = 13;       // the pin that the LED is attached to
 
@@ -16,8 +14,6 @@ void setup() {
   // initialize serial communication:
   Serial.begin(9600);
 }
-
-
 void loop() {
   // read the pushbutton input pin:
   buttonState = digitalRead(buttonPin);
@@ -35,16 +31,10 @@ void loop() {
       // if the current state is LOW then the button went from on to off:
       Serial.println("off");
     }
-    // Delay a little bit to avoid bouncing
     delay(50);
   }
   // save the current state as the last state, for next time through the loop
   lastButtonState = buttonState;
-
-
-  // turns on the LED every four button pushes by checking the modulo of the
-  // button push counter. the modulo function gives you the remainder of the
-  // division of two numbers:
   if (buttonPushCounter % 2 == 0) {
     digitalWrite(ledPin, HIGH);
   } else {
