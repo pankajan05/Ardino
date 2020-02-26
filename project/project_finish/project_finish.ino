@@ -1,11 +1,11 @@
-
-
 #include <Stepper.h> 
+
 // Define connection pins:
 #define buzzerPin 5
 #define pirPin 2
 #define ledPin 13
 
+//Define the Motor inputpins
 int in1Pin = 8;
 int in2Pin = 9;
 int in3Pin = 10;
@@ -26,7 +26,6 @@ void setup() {
   pinMode(pirPin, INPUT);
   
   int user_speed=10;   // Read entered integer value and store it in a variable
-  Serial.println(user_speed);    // print user speed on serial monitor
   motor.setSpeed(user_speed);  // Set stepper motor speed to user defined speed
 
   // Begin serial communication at a baud rate of 9600:
@@ -34,19 +33,19 @@ void setup() {
 }
 
 void loop() {
-  for(int y=0; y<4; y++){
+  for(int AngleDivision=0; AngleDivision<4; AngleDivision++){
       Serial.println("clockwise"); // print text on serial monitor
       motor.step(stepsPerRevolution/4); // rotate motor in clockwise direction for one revolution
       delay(500);
-       for(int x=0; x<10;x++){
+       for(int checkTime=0; checkTime<20;checkTime++){
           check();
        }
   }
-  for(int y=0; y<4; y++){
+  for(int AngleDivision=0; AngleDivision<4; AngleDivision++){
       Serial.println("clockwise"); // print text on serial monitor
       motor.step(-stepsPerRevolution/4); // rotate motor in clockwise direction for one revolution
       delay(500);
-       for(int x=0; x<10;x++){
+       for(int checkTime=0; checkTime<20;checkTime++){
           check();
        }
   }
